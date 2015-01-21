@@ -22,9 +22,16 @@ function createClass(...)
              local x = v
         end
     end
-    local newObject.new()
+    local newObject.new(...)
         local self = setmetatable({}, newObject)
         return self
     end
     return newObject
+end
+
+function createStandardClasses()
+   local v2 = {__call = function(x, y)_G["Vector2"] = setmetatable({["x"] = x, ["y"] = y}, {x = 0, y = 0})
+   local v3 = {x = 0, y = 0, z = 0)
+   _G["Vector2"] = setmetatable({}, v2)
+   _G["Vector3"] = setmetatable({}, v3)
 end
