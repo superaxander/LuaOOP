@@ -14,8 +14,12 @@ local function set(obj, valueName, valueTarget)
     obj
 end
 
-function createObject(...)
+function createClass(...)
     local newObject = {}
+    newObject.__index = newObject
+    local newObject:get(valueName)
+       return self[valueName)
+    end
     for i, v in pairs({...})
         if i % 2 == 0 then
             table.insert(newObject, x, v)
