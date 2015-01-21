@@ -2,7 +2,7 @@
 LuaOOP Library
 By: Alexander S.
 
-This file may be used for commercial and personal use. As long as credit is given and a reference to https://github.com/superaxander/LuaOOP/raw/master/luaoop.lua
+This file may be used for commercial and personal use. As long as credit is given and a reference to https://github.com/superaxander/LuaOOP/raw/master/luaoop.lua is included.
 
 ]]--
 
