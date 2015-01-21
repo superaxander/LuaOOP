@@ -6,6 +6,14 @@ This file may be used for comercial and personal use. As long as credit is given
 
 ]]--
 
+local function get(obj, valueName)
+    return obj[valueName]
+end
+
+local function set(obj, valueName, valueTarget)
+    obj
+end
+
 function createObject(...)
     local newObject = {}
     for i, v in pairs({...})
@@ -15,4 +23,5 @@ function createObject(...)
             local x = v
         end
     end
+    return newObject
 end
