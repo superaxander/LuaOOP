@@ -18,13 +18,18 @@ function createClass(...)
     local newObject = {}
     newObject.__index = newObject
     local newObject:get(valueName)
-       return self[valueName)
+       return self[valueName]
     end
-    for i, v in pairs({...})
-        if i % 2 == 0 then
-            table.insert(newObject, x, v)
-        else
-            local x = v
+    local newObject:set(valueName, valueTarget)
+       self[valueName] = valueTarget
+    end
+    local newObject.new(...)
+        for i, v in pairs({...})
+            if i % 2 == 0 then
+                table.insert(newObject, x, v)
+            else
+                local x = v
+            end
         end
     end
     return newObject
