@@ -6,7 +6,7 @@ This file may be used for commercial and personal use. As long as credit is give
 
 ]]--
 
-function createClass()
+function createClass(...)
     local newObject = {}
     newObject.__index = newObject
     local newObject:get(valueName)
@@ -15,17 +15,16 @@ function createClass()
     local newObject:set(valueName, valueTarget)
        self[valueName] = valueTarget
     end
-    local newObject.new(...)
-        for i, v in pairs({...})
-            if i % 2 == 0 then
-                table.insert(newObject, x, v)
-            else
-                local x = v
-            end
+    for i, v in pairs({...})
+        if i % 2 == 0 then
+            table.insert(newObject, x, v)
+        else
+             local x = v
         end
     end
-    local newObject.new(...)
+    local newObject.new()
         local self = setmetatable({}, newObject)
+        return self
     end
     setmetatable(newObject, newObject)
     return newObject
