@@ -9,7 +9,7 @@ This file may be used for comercial and personal use. As long as credit is given
 function createObject(...)
     local newObject = {}
     for i, v in pairs({...})
-        if isEven(i) then
+        if i % 2 == 0 then
             table.insert(newObject, x, v)
         else
             local x = v
