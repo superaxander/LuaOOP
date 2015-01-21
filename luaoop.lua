@@ -6,15 +6,7 @@ This file may be used for commercial and personal use. As long as credit is give
 
 ]]--
 
-local function get(obj, valueName)
-    return obj[valueName]
-end
-
-local function set(obj, valueName, valueTarget)
-    obj
-end
-
-function createClass(...)
+function createClass()
     local newObject = {}
     newObject.__index = newObject
     local newObject:get(valueName)
@@ -32,5 +24,6 @@ function createClass(...)
             end
         end
     end
+    setmetatable(newObject, newObject)
     return newObject
 end
