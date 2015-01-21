@@ -24,6 +24,9 @@ function createClass()
             end
         end
     end
+    local newObject.new(...)
+        local self = setmetatable({}, newObject)
+    end
     setmetatable(newObject, newObject)
     return newObject
 end
