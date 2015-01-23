@@ -31,7 +31,7 @@ function createClass(orig)
 end
 
 function createStandardClasses()
-   Vector2 = createClass({"x" = 0, "y" = 0})
+   Vector2 = createClass({["x"] = 0, ["y"] = 0})
    Vector2.__call = function(x, y)
       local selout = setmetatable({["x"] = x or 0, ["y"] = y or 0},Vector2)
       return selfout
@@ -45,7 +45,7 @@ function createStandardClasses()
           end
       end
    end
-   Vector3 = createClass({"x" = 0, "y" = 0, "z" = 0})
+   Vector3 = createClass({["x"] = 0, ["y"] = 0, ["z"] = 0})
    Vector3.__call = function(x, y, z)
       local selfout = setmetatable({["x"] = x or 0, ["y"] = y or 0, ["z"] = z or 0}, Vector3)
       return selfout
