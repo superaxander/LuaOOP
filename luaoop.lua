@@ -22,23 +22,40 @@ function createClass(...)
              local x = v
         end
     end
-    local newObject.new()
-        local self = setmetatable({}, newObject)
-        return self
+    local newObject:new()
+        local selfout = setmetatable({}, self)
+        return selfout
     end
     return newObject
 end
 
 function createStandardClasses()
-   local v3 = {x = 0, y = 0, z = 0)
-   _G["Vector2"] = createClass("x", 0, "y", 0)
-   Vector2.__call function(x, y)
-      local self = setmetatable({["x"] = x or 0, ["y"] = y or 0},Vector2)
-      return self
+   Vector2 = createClass("x", 0, "y", 0)
+   Vector2.__call = function(x, y)
+      local selout = setmetatable({["x"] = x or 0, ["y"] = y or 0},Vector2)
+      return selfout
    end
-   _G["Vector3"] = createClass("x", 0, "y", 0, "z", 0)
-   Vector3.__call function(x, y, z)
-      local self = setmetatable({["x"] = x or 0, ["y"] = y or 0, ["z"] = z or 0}, Vector3)
-      return self
+   Vector2.__eq = function(op1, op2)
+      if type(op1) == type(op2) then
+          if op1["x"] and op1["y"] and op2["x"] and op2["y"] then
+              if op1["x"] == op2["x"] and op1["y"] == op2["y"] then
+                  return true
+              end
+          end
+      end
+   end
+   Vector3 = createClass("x", 0, "y", 0, "z", 0)
+   Vector3.__call = function(x, y, z)
+      local selfout = setmetatable({["x"] = x or 0, ["y"] = y or 0, ["z"] = z or 0}, Vector3)
+      return selfout
+   end
+   Vector3.__eq = function(op1, op2)
+      if type(op1) == type(op2) then
+          if op1["x"] and op1["y"] and op1["z"] and op2["x"] and op2["y"] and op2["z"] then
+              if op1["x"] == op2["x"] and op1["y"] == op2["y"] and op1["z"] == op2["z"] then
+                  return true
+              end
+          end
+      end
    end
 end
