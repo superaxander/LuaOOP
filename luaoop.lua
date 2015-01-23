@@ -17,7 +17,7 @@ function createClass(...)
     end
     for i, v in pairs({...}) do
         if i % 2 == 0 then
-            table.insert(newObject, x, v)
+            newObject[x] = v
         else
              local x = v
         end
