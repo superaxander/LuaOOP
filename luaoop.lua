@@ -9,10 +9,10 @@ This file may be used for commercial and personal use. As long as credit is give
 function createClass(...)
     local newObject = {}
     newObject.__index = newObject
-    local newObject:get(valueName)
+    local function newObject:get(valueName)
        return self[valueName]
     end
-    local newObject:set(valueName, valueTarget)
+    local function newObject:set(valueName, valueTarget)
        self[valueName] = valueTarget
     end
     for i, v in pairs({...})
@@ -22,7 +22,7 @@ function createClass(...)
              local x = v
         end
     end
-    local newObject:new()
+    local function newObject:new()
         local selfout = setmetatable({}, self)
         return selfout
     end
