@@ -15,7 +15,7 @@ function createClass(...)
     function newObject:set(valueName, valueTarget)
        self[valueName] = valueTarget
     end
-    for i, v in pairs({...})
+    for i, v in pairs({...}) do
         if i % 2 == 0 then
             table.insert(newObject, x, v)
         else
