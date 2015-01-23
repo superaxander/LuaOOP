@@ -6,7 +6,7 @@ This file may be used for commercial and personal use. As long as credit is give
 
 ]]--
 
-function createClass(...)
+function createClass(orig)
     local newObject = {}
     newObject.__index = newObject
     function newObject:get(valueName)
@@ -15,12 +15,13 @@ function createClass(...)
     function newObject:set(valueName, valueTarget)
        self[valueName] = valueTarget
     end
-    for i, v in pairs({...}) do
-        if i % 2 == 0 then
-            newObject[x] = v
-        else
-             local x = v
+    local orig_type = type(orig)
+    if orig_type == 'table' then
+        for orig_key, orig_value in pairs(orig) do
+            newObject[orig_key] = orig_value
         end
+    else -- number, string, boolean, etc
+        error("Expected table got "..orig_type)
     end
     function newObject:new()
         local selfout = setmetatable({}, self)
@@ -30,7 +31,7 @@ function createClass(...)
 end
 
 function createStandardClasses()
-   Vector2 = createClass("x", 0, "y", 0)
+   Vector2 = createClass({"x" = 0, "y" = 0})
    Vector2.__call = function(x, y)
       local selout = setmetatable({["x"] = x or 0, ["y"] = y or 0},Vector2)
       return selfout
@@ -44,7 +45,7 @@ function createStandardClasses()
           end
       end
    end
-   Vector3 = createClass("x", 0, "y", 0, "z", 0)
+   Vector3 = createClass({"x" = 0, "y" = 0, "z" = 0})
    Vector3.__call = function(x, y, z)
       local selfout = setmetatable({["x"] = x or 0, ["y"] = y or 0, ["z"] = z or 0}, Vector3)
       return selfout
