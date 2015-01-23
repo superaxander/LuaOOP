@@ -36,6 +36,7 @@ function createStandardClasses()
       local selout = setmetatable({["x"] = x or 0, ["y"] = y or 0},Vector2)
       return selfout
    end
+   
    Vector2.__eq = function(op1, op2)
       if type(op1) == type(op2) then
           if op1["x"] and op1["y"] and op2["x"] and op2["y"] then
@@ -45,6 +46,7 @@ function createStandardClasses()
           end
       end
    end
+   Vector2 = setmetatable(Vector2, Vector2)
    Vector3 = createClass({["x"] = 0, ["y"] = 0, ["z"] = 0})
    Vector3.__call = function(x, y, z)
       local selfout = setmetatable({["x"] = x or 0, ["y"] = y or 0, ["z"] = z or 0}, Vector3)
@@ -59,4 +61,5 @@ function createStandardClasses()
           end
       end
    end
+   Vector3 = setmetatable(Vector3, Vector3)
 end
